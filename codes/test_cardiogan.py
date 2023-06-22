@@ -11,6 +11,7 @@ import sklearn.preprocessing as skp
 
 import module 
 import preprocessing
+import tflib
 
 tf.keras.backend.set_floatx('float64')
 tf.autograph.set_verbosity(0)
@@ -29,11 +30,11 @@ ppg_sampling_freq = 128
 window_size = 4
 ecg_segment_size = ecg_sampling_freq*window_size
 ppg_segment_size = ppg_sampling_freq*window_size
-model_dir = 'path/to/weights'
+model_dir = '../weights'
 
 """ model """
 Gen_PPG2ECG = module.generator_attention()
-""" resotre """
+""" restore """
 tflib.Checkpoint(dict(Gen_PPG2ECG=Gen_PPG2ECG), model_dir).restore()
 print("model loaded successfully")
 
