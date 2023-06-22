@@ -6,3 +6,5 @@ tqdm
 opencv-python
 matplotlib
 tensorflow-addons
+biosppy
+tkinter
